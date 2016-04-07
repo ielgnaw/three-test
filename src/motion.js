@@ -28,8 +28,9 @@ define(function (require) {
         stageWH: 0,
         stageH: 0,
         stageHH: 0,
+        cameraY: 4,
         cameraZ: 130,
-        cameraFov: 80,
+        cameraFov: 90,
         minWidth: 1000,
         domContainer: '#main',
         lockCamera: false,
@@ -77,8 +78,10 @@ define(function (require) {
         motion.camera.aspect = w / window.innerHeight;
         motion.camera.updateProjectionMatrix();
         motion.renderer.setSize(w, window.innerHeight);
+
         motion.stageW = w;
         motion.stageWH = motion.stageW / 2;
+
         motion.stageH = window.innerHeight;
         motion.stageHH = motion.stageH / 2;
 
@@ -106,7 +109,7 @@ define(function (require) {
         this.camera = new THREE.PerspectiveCamera(this.cameraFov, window.innerWidth / window.innerHeight, 0.1, 1000);
 
         // 设置摄像机的位置
-        this.camera.position.z = this.cameraZ;
+        this.camera.position.set(0, this.cameraY, this.cameraZ);
 
         this.renderer = new THREE.WebGLRenderer({
             antialias: true
@@ -159,9 +162,6 @@ define(function (require) {
             this.scene.add(mousePosSphere);
         }
 
-        // setTimeout(function () {
-        //     line.activate();
-        // }, 100);
         line.init(motion);
 
         callback && typeof callback === 'function' && callback();
@@ -227,5 +227,6 @@ define(function (require) {
     motion.hideBlock = function () {
         line.deactivate();
     };
+
     return motion;
 });

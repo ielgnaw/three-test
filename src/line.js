@@ -308,6 +308,10 @@ define(function (require) {
         var step = 3;
 
         for (var i = step; i < asset.length; i += step) {
+            if (name === 'logo') {
+                console.warn(asset[i], asset[i + 1], asset[i + 2]);
+                console.warn();
+            }
             var v = new THREE.Vector3(asset[i], asset[i + 1], asset[i + 2]).multiplyScalar(line.scale);
             v.x += offsetX;
             v.y += offsetY;

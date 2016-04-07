@@ -8,7 +8,7 @@ define(function (require) {
     var motion = require('./motion');
 
     function callback() {
-        var arr = ['heart', 'logo'];
+        var arr = ['logo', 'heart'];
         var index = 0;
         setTimeout(function () {
             motion.showBlock(arr[index]);
