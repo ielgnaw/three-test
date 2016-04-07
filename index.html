@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+
+    <title>Three Test</title>
+    <script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-8-0/esl.js"></script>
+</head>
+
+<body>
+    <div id="main"></div>
+    <script src="./dep/three/three.min.js"></script>
+    <script src="./dep/TweenLite/TweenLite.min.js"></script>
+    <script>
+        require.config({
+            'baseUrl': 'src',
+            'paths': {},
+            'packages': [{
+                    'name': 'jquery',
+                    'location': '../dep/jquery/1.11.1/src',
+                    'main': 'jquery'
+                }]
+        });
+        require(['main'], function (main) {
+            main.init();
+        });
+    </script>
+</body>
+</html>
