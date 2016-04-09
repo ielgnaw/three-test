@@ -191,6 +191,7 @@ define(function (require) {
         var v;
         for (var i = 1; i < line.geo.vertices.length - 1; i++) {
             v = line.geo.vertices[i];
+            // console.warn(v);
             var vs = v.start;
             var vd = v.delta;
             var d = 1;
@@ -206,10 +207,10 @@ define(function (require) {
 
             v.x = vs.x + vd.x * d;
             v.y = vs.y + vd.y * d;
-            v.z = vs.z + vd.z * d;
+            // v.z = vs.z + vd.z * d;
 
-            var col = Math.min(Math.max(0, 1 + v.z * 1.5), 1);
-            line.geo.colors[i].setRGB(col, col, col, col);
+            // var col = Math.min(Math.max(0, 1 + v.z * 1.5), 1);
+            // line.geo.colors[i].setRGB(col, col, col, col);
         }
 
         if (readyCount >= line.geo.vertices.length - 2 && !line.isComplete) {
@@ -309,8 +310,8 @@ define(function (require) {
 
         for (var i = step; i < asset.length; i += step) {
             if (name === 'logo') {
-                console.warn(asset[i], asset[i + 1], asset[i + 2]);
-                console.warn();
+                // console.warn(asset[i], asset[i + 1], asset[i + 2]);
+                // console.warn();
             }
             var v = new THREE.Vector3(asset[i], asset[i + 1], asset[i + 2]).multiplyScalar(line.scale);
             v.x += offsetX;
