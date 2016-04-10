@@ -87,7 +87,9 @@ define(function (require) {
         }
 
         var m = new THREE.LineBasicMaterial({
-            color: '#2d3be4',
+            // color: '#2d3be4',
+            // color: '#2d7dff',
+            color: '#5375fb', // rgba(83, 117, 251, 1.00)
             linewidth: 1,
             vertexColors: THREE.VertexColors,
             transparent: true,
@@ -159,7 +161,7 @@ define(function (require) {
     };
 
     /**
-     * 非激活动效
+     * 非激活的动效
      */
     line._deactivate = function () {
         TweenLite.to(line.mesh.material, 0.15, {
@@ -335,7 +337,7 @@ define(function (require) {
         v.start.x = v.x;
         v.start.y = v.y;
         v.start.z = v.z;
-        v.delta.x = v.target.x - v.x;// delta movement
+        v.delta.x = v.target.x - v.x; // delta movement
         v.delta.y = v.target.y - v.y;
         v.delta.z = v.target.z - v.z;
     };

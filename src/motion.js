@@ -62,6 +62,7 @@ define(function (require) {
             var i = -1;
             var len = motion.mods.length;
             while (++i < len) {
+                // console.warn(delta);
                 motion.mods[i].update(delta);
             }
         }
