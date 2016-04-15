@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<style type="text/css">
+    path {
+        fill: none;
+        stroke: #000;
+        stroke-width: 1px;
+    }
+
+    circle {
+        fill: red;
+        stroke: #fff;
+        stroke-width: 1px;
+    }
+    body {
+        margin: 0
+    }
+​</style>
+</head>
+<body>
+    <div id="log" style="margin:10px;margin-top: 200px;position: absolute;"></div>
+    <!-- <svg class="svg-container" width="960" height="200"><path d="M5.353,155.316c13.255-0.591,25.595-2.021,33.812-4.897c27.419-9.597,42.499-30.161,42.499-30.161h-22.62c0,0-1.714-12.338,4.798-16.451c6.512-4.113,13.252-6.398,15.08-18.508c2.285-6.398-0.228-24.448,4.798-32.217c5.027-7.769,6.169-18.508,16.451-18.508s11.653,9.368,15.766,16.451s4.57,26.733,4.798,33.588c0.457,13.709,16.794,16.794,19.193,22.62s1.371,13.024,1.371,13.024h-39.072V81.872c0,0,8.226-3.427,8.226-10.282s-4.113-10.282-10.282-10.282S89.889,65.421,89.889,71.59s8.226,10.282,8.226,10.282v38.386H86.462l0.026,10.167l5.303,1.169l6.324,31.849h3.427l6.855-31.532l4.798-1.371V123c7.266,1.508,15.217,7.266,27.419,13.024c12.201,5.758,35.886,18.809,58.265,19.193"></path><circle r="1" transform="translate(183.1570587158203,153.1313934326172)"></circle></svg> -->
+    <script type="text/javascript" src="./d3.v2.js"></script>
+    <script type="text/javascript">
+
+        var svg = d3.select('body').append('svg')
+            .attr('width', 960)
+            .attr('height', 200);
+
+        var path = svg.append('path')
+            .attr('d',
+                'M0.5,153.657c0,0,100.114,8.571,187.886,8.571s170.057-10.286,202.286-14.743c32.229-4.457,85.714-4.8,85.714-4.8s-40.47-28.794-48.62-54.535c-4.743-14.981,6.978-33.559,25.685-32.499c16.078,0.911,28.421,18.463,28.421,18.463s12.642-18.261,29.131-18.846c16.139-0.572,31.598,15.449,24.198,34.819c-9.786,25.613-47.843,53.969-47.843,53.969c10.337,2.145,62.4,8,104.914,10.286c42.514,2.286,79.606-2.057,168-4.114S960.5,166,960.5,166'
+            );
+
+        var circle = svg.append('circle').attr({
+            'r': 1,
+            'transform': 'translate(0.5, 153.657)'
+        });
+
+        transition();
+
+        function transition() {
+            circle.transition()
+                .duration(10000)
+                .delay(2000)
+                .ease('linear')
+                .attrTween('transform', translateAlong(path.node()))
+                .each('end', function () {
+                    log.innerHTML = arr.join('<br>');
+                })
+        }
+
+        var arr = [];
+        var first;
+
+        function translateAlong(path) {
+            var l = path.getTotalLength();
+            return function(d, i, a) {
+                return function(t) {
+                    var p = path.getPointAtLength(t * l);
+                    if (first === void 0) {
+                        first = p.x;
+                    }
+                    arr.push(''
+                        // 变大往左
+                        // 30.713
+                        // 30.711
+                        // 30.705
+                        // 30.706
+                        + (p.x / 15 - first - 31.705).toFixed(3)
+                        + ', '
+                        + (-p.y / 15 + 10).toFixed(3)
+                        + ', 0,');
+                    return 'translate(' + p.x + ',' + p.y + ')';
+                };
+            };
+        }
+
+    </script>
+</body>
+</html>

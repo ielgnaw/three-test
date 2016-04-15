@@ -19,8 +19,9 @@ define(function (require) {
      * @type {Object}
      */
     var ASSETS = {
-        heart: require('heartData'),
-        logo: require('logoData')
+        heart: require('./heartData'),
+        logo: require('./logoData'),
+        like: require('./likeData')
     };
 
     var line = {
@@ -34,9 +35,7 @@ define(function (require) {
         maxVertices: 0,
         geo: null,
         currentShape: '',
-        // shapes: ['girl','guitarist','logo','hat'],
-        // shapes: ['hat', 'logo'],
-        shapes: ['heart', 'logo'],
+        shapes: ['like', 'heart', 'logo'],
         scale: 0.9,
         timer: 0,
         onComplete: null,
@@ -89,8 +88,8 @@ define(function (require) {
         var m = new THREE.LineBasicMaterial({
             // color: '#2d3be4',
             // color: '#2d7dff',
-            color: '#5375fb', // rgba(83, 117, 251, 1.00)
-            linewidth: 1,
+            color: '#306eff',
+            linewidth: 2,
             vertexColors: THREE.VertexColors,
             transparent: true,
             opacity: 0

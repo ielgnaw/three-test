@@ -9,6 +9,38 @@
                         /*transform: scale(1.5, 1.5);*/
                 margin: 150px 0;
             }
+
+            .swing {
+                -webkit-animation-name: swing;
+                -webkit-animation-duration: 3s;
+                -webkit-animation-timing-function: linear;
+                -webkit-animation-delay: 0;
+                -webkit-animation-iteration-count: infinite;
+                /*-webkit-animation-direction: @directions;*/
+                /*-webkit-animation-fill-mode: @modes;*/
+            }
+            @-webkit-keyframes 'swing' {
+                0% {
+                    -webkit-transform: translate3d(0, 0px, 0);
+                            transform: translate3d(0, 0px, 0);
+                }
+                25% {
+                    -webkit-transform: translate3d(0, -10px, 0);
+                            transform: translate3d(0, -10px, 0);
+                }
+                50% {
+                    -webkit-transform: translate3d(0, 0px, 0);
+                            transform: translate3d(0, 0px, 0);
+                }
+                75% {
+                    -webkit-transform: translate3d(0, -10px, 0);
+                            transform: translate3d(0, -10px, 0);
+                }
+                100% {
+                    -webkit-transform: translate3d(0, 0px, 0);
+                            transform: translate3d(0, 0px, 0);
+                }
+            }
         </style>
         <script src="./dep/snap.svg/snap.svg.js"></script>
         <!-- <script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/2-1-4/esl.js"></script> -->

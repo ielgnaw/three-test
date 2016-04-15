@@ -108,7 +108,7 @@ define(function (require) {
             animation: {
                 opacity: 1
             },
-            dur: 2000
+            dur: 500
         },
 
         // 6 -> 5
@@ -117,7 +117,7 @@ define(function (require) {
                 d: pathData.five
             },
             easing: mina.bounce,
-            dur: 1000
+            dur: 30
         },
 
         // 5 -> 4
@@ -125,7 +125,7 @@ define(function (require) {
             animation: {
                 d: pathData.four
             },
-            dur: 50
+            dur: 30
         },
 
         // 4 -> 3
@@ -133,7 +133,7 @@ define(function (require) {
             animation: {
                 d: pathData.three
             },
-            dur: 50
+            dur: 30
         },
 
         // 3 -> 2
@@ -141,7 +141,7 @@ define(function (require) {
             animation: {
                 d: pathData.two
             },
-            dur: 50
+            dur: 30
         },
 
         // 2 -> 1
@@ -149,7 +149,7 @@ define(function (require) {
             animation: {
                 d: pathData.one
             },
-            dur: 50
+            dur: 30
         },
 
         // 1 -> 2
@@ -157,7 +157,7 @@ define(function (require) {
             animation: {
                 d: pathData.two
             },
-            dur: 50
+            dur: 30
         },
 
         // 2 -> 3
@@ -165,7 +165,7 @@ define(function (require) {
             animation: {
                 d: pathData.three
             },
-            dur: 50
+            dur: 30
         },
 
         // 3 -> 4
@@ -173,7 +173,7 @@ define(function (require) {
             animation: {
                 d: pathData.four
             },
-            dur: 50
+            dur: 30
         },
 
         // 4 -> 5
@@ -181,7 +181,7 @@ define(function (require) {
             animation: {
                 d: pathData.five
             },
-            dur: 50
+            dur: 30
         },
 
         // backout
@@ -195,7 +195,7 @@ define(function (require) {
                 d: pathData.six
             },
             easing: mina.bounce,
-            dur: 50
+            dur: 30
         },
 
         // 6 -> 7
@@ -204,7 +204,7 @@ define(function (require) {
                 d: pathData.seven
             },
             easing: mina.bounce,
-            dur: 50
+            dur: 30
         },
 
         // 7 -> 8
@@ -212,8 +212,8 @@ define(function (require) {
             animation: {
                 d: pathData.eight
             },
-            easing: mina.backout,
-            dur: 500
+            easing: mina.bounce,
+            dur: 30
         },
 
         // 8 -> 9
@@ -222,7 +222,7 @@ define(function (require) {
                 d: pathData.nine
             },
             easing: mina.bounce,
-            dur: 500
+            dur: 30
         },
 
         // 9 -> 10
@@ -231,18 +231,18 @@ define(function (require) {
                 d: pathData.ten
             },
             easing: mina.bounce,
-            dur: 50
+            dur: 30
         },
 
         // last
-        {
-            animation: {
-                opacity: 0
-            },
-            delay: 3000,
-            easing: mina.linear,
-            dur: 1000
-        }
+        // {
+        //     animation: {
+        //         opacity: 0
+        //     },
+        //     delay: 3000,
+        //     easing: mina.linear,
+        //     dur: 1000
+        // }
 
     ];
 

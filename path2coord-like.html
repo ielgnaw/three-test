@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<style type="text/css">
+    path {
+        fill: none;
+        stroke: #000;
+        stroke-width: 1px;
+    }
+
+    circle {
+        fill: red;
+        stroke: #fff;
+        stroke-width: 1px;
+    }
+    body {
+        margin: 0
+    }
+​</style>
+</head>
+<body>
+    <div id="log" style="margin:10px;margin-top: 200px;position: absolute;"></div>
+    <!-- <svg class="svg-container" width="960" height="200"><path d="M5.353,155.316c13.255-0.591,25.595-2.021,33.812-4.897c27.419-9.597,42.499-30.161,42.499-30.161h-22.62c0,0-1.714-12.338,4.798-16.451c6.512-4.113,13.252-6.398,15.08-18.508c2.285-6.398-0.228-24.448,4.798-32.217c5.027-7.769,6.169-18.508,16.451-18.508s11.653,9.368,15.766,16.451s4.57,26.733,4.798,33.588c0.457,13.709,16.794,16.794,19.193,22.62s1.371,13.024,1.371,13.024h-39.072V81.872c0,0,8.226-3.427,8.226-10.282s-4.113-10.282-10.282-10.282S89.889,65.421,89.889,71.59s8.226,10.282,8.226,10.282v38.386H86.462l0.026,10.167l5.303,1.169l6.324,31.849h3.427l6.855-31.532l4.798-1.371V123c7.266,1.508,15.217,7.266,27.419,13.024c12.201,5.758,35.886,18.809,58.265,19.193"></path><circle r="1" transform="translate(183.1570587158203,153.1313934326172)"></circle></svg> -->
+    <script type="text/javascript" src="./d3.v2.js"></script>
+    <script type="text/javascript">
+
+        var svg = d3.select('body').append('svg')
+            .attr('width', 960)
+            .attr('height', 200);
+
+        var path = svg.append('path')
+            .attr('d',
+                'M-0.5,164.088c0,0,223.224-17.118,275.949-16.434s165.021,7.532,165.021,7.532s0-0.991,0-2.739c0-12.993,0-67.789,0-67.789h26.02l0.011,6.11c0,0,6.523,0.819,14.74-6.713c5.532-5.071,6.548-14.561,8.935-21.162c1.598-4.42,4.923-11.886,13.139-11.201c4.106,0.342,11.449,5.234,11.107,17.217c-0.342,11.983-5.478,23.281-5.478,23.281s19.173-1.369,23.966,3.424s1.885,14.059,1.429,18.168c-0.346,3.117-3.146,18.077-6.121,27.507c-2.024,6.413-7.643,9.607-14.092,9.78c-13.737-0.017-44.896-0.012-44.896-0.012l0.007-56.135l-2.734,0l-0.011,56.135l-12.324,0.017c0,0-0.317-0.039-0.317-0.895c0-0.856,4.452-1.17,4.452-5.021s-3.162-5.834-5.608-5.736c-2.446,0.098-5.491,2.166-5.394,5.687c0.098,3.521,4.559,5.154,4.559,5.154l0.484,5.671c0,0,112.521,10.209,146.986,10.209c34.465,0,117.775-3.081,145.849-3.766c28.074-0.685,214.322,0.342,214.322,0.342'
+            );
+
+        var circle = svg.append('circle').attr({
+            'r': 1,
+            'transform': 'translate(0.5, 153.657)'
+        });
+
+        transition();
+
+        function transition() {
+            circle.transition()
+                .duration(10000)
+                .delay(2000)
+                .ease('linear')
+                .attrTween('transform', translateAlong(path.node()))
+                .each('end', function () {
+                    log.innerHTML = arr.join('<br>');
+                })
+        }
+
+        var arr = [];
+        var first;
+
+        function translateAlong(path) {
+            var l = path.getTotalLength();
+            return function(d, i, a) {
+                return function(t) {
+                    var p = path.getPointAtLength(t * l);
+                    if (first === void 0) {
+                        first = p.x;
+                    }
+                    arr.push(''
+                        // 变大往左
+                        // 30.713
+                        // 30.711
+                        // 30.705
+                        // 30.706
+                        + (p.x / 15 - first - 31.705).toFixed(3)
+                        + ', '
+                        + (-p.y / 15 + 10).toFixed(3)
+                        + ', 0,');
+                    return 'translate(' + p.x + ',' + p.y + ')';
+                };
+            };
+        }
+
+    </script>
+</body>
+</html>

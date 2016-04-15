@@ -18,7 +18,8 @@ define(function (require) {
      */
     function nextFrame(aniNode, frameArray, frameIndex) {
         if (frameIndex >= frameArray.length) {
-            console.warn('over');
+            console.warn(svgRoot.node);
+            // svgRoot.node.classList.add('swing');
             return;
         }
 
@@ -37,7 +38,6 @@ define(function (require) {
                 function () {
                     nextFrame(aniNode, frameArray, frameIndex + 1);
                 }
-                // nextFrame.bind(null, aniNode, frameArray, frameIndex + 1)
             );
         }, curFrame.delay);
     }

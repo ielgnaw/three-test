@@ -40,7 +40,7 @@ define(function (require) {
         __mid_fps_count: 0,
         __cam_coef: 16,
         /* eslint-enable fecs-camelcase*/
-        mousePositionDebug: true,
+        mousePositionDebug: !true,
 
         addModule: function (module) {
             motion.mods.push(module);
